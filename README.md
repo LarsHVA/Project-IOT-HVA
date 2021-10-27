@@ -264,7 +264,7 @@ void loop() {
 6. Als de `z` zijn beeindicht ben je succesvol verbonden met je netwerk
 7. Hierna zie je gegeven van de HC-SR04 Ultrasonic Sensor opkomen
 
-![Serial Monitor](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/Install-ArduinoJson-Library.png?raw=true)
+![Serial Monitor](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/Schermafbeelding%202021-10-27%20232838.png?raw=true)
 
 9. Ga naar je eigen bot via de link die je van de Botfather hebt gekregen.
 10. Type `/Start` in om de Commando's in te zien
