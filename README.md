@@ -25,10 +25,14 @@ Hier onder is de eerste protoype te vinden van Seronitor op basis van arduino(es
 4. Type je gebruikers naam in
 5. Als je bot succesvol is aan gemaakt krijg je een link en een TOKEN te zien, Sla deze op voor later.
 
+![Telegram bot aanmaken](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/4590c48c-6330-45d4-8777-9dc5d78fcc7f.jpg?raw=true)
+
 ### Telegram gebruikers ID
 1. Op deze link op je telefoon [t.me/myidbot](t.me/myidbot)
 2. Type `/Getid`
 3. Je ontvangt een gebruikers ID, Sla deze op voor later
+
+![Telegram gebruikers ID](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/6777f4db-d5ab-4f25-9495-fd2b9f32a496.jpg?raw=true)
 
 
 ## 3. Installeer de benodigde libraries
@@ -41,6 +45,8 @@ Hier onder is de eerste protoype te vinden van Seronitor op basis van arduino(es
 1. Ga naar *Skech > Include Library > Manage Libraries* in de Arduino IDE
 2. Zoek naar *ArduinoJson by Benoit BlancHon* Versie > 6.15.2
 3. Instaleer de Library
+
+![ArduinoJson Library](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/Install-ArduinoJson-Library.png?raw=true)
 
 ## 4. Hardware verbinden
 ### HC-SR04 Ultrasonic Sensor naar Arduino
@@ -255,10 +261,15 @@ void loop() {
 5. Tijdens het verbinden komen er `z` bij. (Als dit langer dan een minuut duurt check je netwerk inlog gegevens die je hebt ingevult)
 6. Als de `z` zijn beeindicht ben je succesvol verbonden met je netwerk
 7. Hierna zie je gegeven van de HC-SR04 Ultrasonic Sensor opkomen
-8. Ga naar je eigen bot via de link die je van de Botfather hebt gekregen.
-9. Type `/Start` in om de Commando's in te zien
-10. Type `/Aan` of `/Uit` in om de Ledstrip aan of uit te zetten
-11. Als de HC-SR04 Ultrasonic Sensor een afstand meet die korter is dan 150 CM zet de Arduino zelf de Ledstrip uit
+
+![Serial Monitor](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/Install-ArduinoJson-Library.png?raw=true)
+
+9. Ga naar je eigen bot via de link die je van de Botfather hebt gekregen.
+10. Type `/Start` in om de Commando's in te zien
+11. Type `/Aan` of `/Uit` in om de Ledstrip aan of uit te zetten
+12. Als de HC-SR04 Ultrasonic Sensor een afstand meet die korter is dan 150 CM zet de Arduino zelf de Ledstrip uit
+
+![Resultaat](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/01a659ea-c32f-40d4-9c14-417e3e60cd97.jpg?raw=true)
 
 ## Bronnen
 - [Telegram: Control ESP32/ESP8266 Outputs (Arduino IDE)](https://randomnerdtutorials.com/telegram-control-esp32-esp8266-nodemcu-outputs/)
