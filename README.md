@@ -4,7 +4,7 @@ In een wereld anno 2021, beginnen steeds meer mensen vanuit huis te werken. Dit 
 
 Hier onder is de eerste protoype te vinden van Seronitor op basis van arduino(esp8266), om een demostratie te kunnen bieden van het uiteindelijk beoogde product.
 
-![Seronitor](![image](https://user-images.githubusercontent.com/74202406/139151957-af0b2f5d-8c83-43de-ba50-f9514839b80a.png))
+![Seronitor](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/b7320ad7-1d14-48b5-bbd4-fd32b3015a20.jpg?raw=true)
 
 ## Wat heb je nodig
 ### Hardware
