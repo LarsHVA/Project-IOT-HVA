@@ -41,3 +41,15 @@ Hier onder is de eerste protoype te vinden van Seronitor op basis van arduino(es
 1. Ga naar *Skech > Include Library > Manage Libraries* in de Arduino IDE
 2. Zoek naar *ArduinoJson by Benoit BlancHon* Versie > 6.15.2
 3. Instaleer de Library
+
+## 4. Hardware verbinden
+### HC-SR04 Ultrasonic Sensor naar Arduino
+1. Verbind Vcc met Vin
+2. Verbind Trig met D6
+3. Verbind Echo met D7
+4. Verbind Gnd met Gnd
+
+### HC-SR04 Ultrasonic Sensor naar Arduino
+1. Verbind +5v met Vin
+2. Verbind Din met D5
+4. Verbind Gnd met Gnd
