@@ -5,4 +5,15 @@ In een wereld anno 2021, beginnen steeds meer mensen vanuit huis te werken. Dit 
 Hier onder is de eerste protoype te vinden van Seronitor op basis van arduino(esp8266), om een demostratie te kunnen bieden van het uiteindelijk beoogde product.
 
 ## Wat heb je nodig
+### Hardware
 - Arduino(esp8266)
+- HC-SR04 Ultrasonic Sensor
+- Ledstrip (HUE)
+### Software
+- [Arduino IDE](https://www.arduino.cc/en/software)
+- [Telegram App store](https://apps.apple.com/app/telegram-messenger/id686449807), [Telegram Play store](https://play.google.com/store/apps/details?id=org.telegram.messenger) 
+
+## 1. instaleer Arduino
+- [Link met instructies](https://www.arduino.cc/en/guide/windows)
+
+## 2. Installeer de benodigde libraries
