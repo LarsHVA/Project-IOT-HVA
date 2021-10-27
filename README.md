@@ -14,6 +14,7 @@ Hier onder is de eerste protoype te vinden van Seronitor op basis van arduino(es
 - [Telegram App store](https://apps.apple.com/app/telegram-messenger/id686449807), [Telegram Play store](https://play.google.com/store/apps/details?id=org.telegram.messenger) 
 
 ## 1. instaleer Arduino
-- [Link met instructies](https://www.arduino.cc/en/guide/windows)
+- [Instaleer Arduino](https://www.arduino.cc/en/guide/windows)
+- [Instaleer ESP32 Board](https://www.arduino.cc/en/guide/windows)
 
 ## 2. Installeer de benodigde libraries
