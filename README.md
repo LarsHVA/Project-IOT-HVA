@@ -72,7 +72,7 @@ Hier onder is de eerste protoype te vinden van Seronitor op basis van arduino(es
  #include <avr/power.h>
 #endif
 #define PIN        D5
-#define NUMPIXELS 11
+#define NUMPIXELS !!
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 #define DELAYVAL 500
 
@@ -239,3 +239,27 @@ void loop() {
   
 }
 ```
+
+2. Vul de volgende stukjes aan in de code op de !
+  1. Het aantal Ledjes op je strip `#define NUMPIXELS !!`
+  2. De SSID van je netwerk `const char* ssid = "!!!!!!!!!!!!!";` (Moet een 2.4 GHZ verbinding zijn!)
+  3. Het wachtwoord van je netwerk `const char* password = "!!!!!!!!!!!!!";` (Moet een 2.4 GHZ verbinding zijn!)
+  4. Bot token die je hebt gekregen van de Botfather bot `#define BOTtoken "!!!!!!!!!!!!!"`
+  5. Chat ID die je hebt gekregen van de myidbot Bot `#define CHAT_ID "!!!!!!!!!!!!!"`
+
+## Code uploaden en Testen
+1. Upload je code door op het groene ronde pijltje boven in je Arduino IDE te klikken als je je Arduino hebt aangesloten
+2. Als dit zonder errors gaat, klik dan op Serial Monitor, zoniet check de velden die je moest invullen nog een keer of check de error log.
+3. In de Serial Monitor selecteer je
+4. Als het goed is zie je nu de tekst `Connecting to WiFi.. [-_-]Z` verschijnen
+5. Tijdens het verbinden komen er `z` bij. (Als dit langer dan een minuut duurt check je netwerk inlog gegevens die je hebt ingevult)
+6. Als de `z` zijn beeindicht ben je succesvol verbonden met je netwerk
+7. Hierna zie je gegeven van de HC-SR04 Ultrasonic Sensor opkomen
+8. Ga naar je eigen bot via de link die je van de Botfather hebt gekregen.
+9. Type `/Start` in om de Commando's in te zien
+10. Type `/Aan` of `/Uit` in om de Ledstrip aan of uit te zetten
+11. Als de HC-SR04 Ultrasonic Sensor een afstand meet die korter is dan 150 CM zet de Arduino zelf de Ledstrip uit
+
+## Bronnen
+- [Telegram: Control ESP32/ESP8266 Outputs (Arduino IDE)](https://randomnerdtutorials.com/telegram-control-esp32-esp8266-nodemcu-outputs/)
+- [ESP8266 NodeMCU with HC-SR04 Ultrasonic Sensor with Arduino IDE](https://randomnerdtutorials.com/esp8266-nodemcu-hc-sr04-ultrasonic-arduino/)
