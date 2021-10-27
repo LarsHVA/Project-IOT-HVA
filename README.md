@@ -4,6 +4,8 @@ In een wereld anno 2021, beginnen steeds meer mensen vanuit huis te werken. Dit 
 
 Hier onder is de eerste protoype te vinden van Seronitor op basis van arduino(esp8266), om een demostratie te kunnen bieden van het uiteindelijk beoogde product.
 
+![Seronitor](![image](https://user-images.githubusercontent.com/74202406/139151957-af0b2f5d-8c83-43de-ba50-f9514839b80a.png))
+
 ## Wat heb je nodig
 ### Hardware
 - Arduino(esp8266)
@@ -270,6 +272,8 @@ void loop() {
 12. Als de HC-SR04 Ultrasonic Sensor een afstand meet die korter is dan 150 CM zet de Arduino zelf de Ledstrip uit
 
 ![Resultaat](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/01a659ea-c32f-40d4-9c14-417e3e60cd97.jpg?raw=true)
+
+![Resultaat](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/ezgif-6-d0c740dc9b33.gif?raw=true)
 
 ## Bronnen
 - [Telegram: Control ESP32/ESP8266 Outputs (Arduino IDE)](https://randomnerdtutorials.com/telegram-control-esp32-esp8266-nodemcu-outputs/)
