@@ -53,3 +53,189 @@ Hier onder is de eerste protoype te vinden van Seronitor op basis van arduino(es
 1. Verbind +5v met Vin
 2. Verbind Din met D5
 4. Verbind Gnd met Gnd
+
+## 5. upload code
+1. Kopieer de volgende code
+
+```
+#ifdef ESP32
+  #include <WiFi.h>
+#else
+  #include <ESP8266WiFi.h>
+#endif
+#include <WiFiClientSecure.h>
+#include <UniversalTelegramBot.h>   // Universal Telegram Bot Library written by Brian Lough: https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot
+#include <ArduinoJson.h>
+
+#include <Adafruit_NeoPixel.h>
+#ifdef __AVR__
+ #include <avr/power.h>
+#endif
+#define PIN        D5
+#define NUMPIXELS 11
+Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+#define DELAYVAL 500
+
+// Replace with your network credentials
+const char* ssid = "!!!!!!!!!!!!!";
+const char* password = "!!!!!!!!!!!!!";
+
+// Initialize Telegram BOT
+#define BOTtoken "!!!!!!!!!!!!!" 
+#define CHAT_ID "!!!!!!!!!!!!!"
+
+#ifdef ESP8266
+  X509List cert(TELEGRAM_CERTIFICATE_ROOT);
+#endif
+
+WiFiClientSecure client;
+UniversalTelegramBot bot(BOTtoken, client);
+
+// Checks for new messages every 1 second.
+int botRequestDelay = 1000;
+unsigned long lastTimeBotRan;
+
+const int ledPin = 2;
+bool ledState = LOW;
+
+byte doOnce = 0;
+
+const int trigPin = D6;
+const int echoPin = D7;
+
+//define sound velocity in cm/uS
+#define SOUND_VELOCITY 0.034
+
+long duration;
+float distanceCm;
+
+// Handle what happens when you receive new messages
+void handleNewMessages(int numNewMessages) {
+  Serial.println("handleNewMessages");
+  Serial.println(String(numNewMessages));
+
+  for (int i=0; i<numNewMessages; i++) {
+    
+    #if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
+      clock_prescale_set(clock_div_1);
+    #endif
+    pixels.begin();
+    
+    // Chat id of the requester
+    String chat_id = String(bot.messages[i].chat_id);
+    if (chat_id != CHAT_ID){
+      bot.sendMessage(chat_id, "Unauthorized user", "");
+      continue;
+    }
+    
+    // Print the received message
+    String text = bot.messages[i].text;
+    Serial.println(text);
+
+    String from_name = bot.messages[i].from_name;
+
+    if (text == "/start") {
+      String welcome = "Welkom, " + from_name + ".\n";
+      welcome += "Gebruik de volgende commando's om je computer aan of uit te zetten\n\n";
+      welcome += "/Aan Zet Computer aan \n";
+      welcome += "/Uit Zet computer uit \n";
+      bot.sendMessage(chat_id, welcome, "");
+    }
+
+    if (text == "/Aan") {
+      bot.sendMessage(chat_id, "Computer is aangezet", "");
+      Serial.println("Computer aan");
+      pixels.clear();
+      for(int i=0; i<NUMPIXELS; i++) {
+        pixels.setPixelColor(i, pixels.Color(0, 0, 255));
+        pixels.show();
+      }
+    }
+    
+    if (text == "/Uit") {
+      bot.sendMessage(chat_id, "Computer is uitgezet", "");
+      Serial.println("Computer uit");
+      pixels.clear();
+      pixels.show();
+    }
+    
+  }
+
+    // Check distance is below 150 or not
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(2);
+    // Sets the trigPin on HIGH state for 10 micro seconds
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);
+    
+    // Reads the echoPin, returns the sound wave travel time in microseconds
+    duration = pulseIn(echoPin, HIGH);
+    
+    // Calculate the distance
+    distanceCm = duration * SOUND_VELOCITY/2;
+   
+    
+    // Prints the distance on the Serial Monitor
+    Serial.print("Distance (cm): ");
+    Serial.println(distanceCm);
+
+    if (distanceCm <= 150) {
+      Serial.println("Computer uit");
+      pixels.clear();
+      pixels.show();
+    }
+  
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+
+  #ifdef ESP8266
+    configTime(0, 0, "pool.ntp.org");      // get UTC time via NTP
+    client.setTrustAnchors(&cert); // Add root certificate for api.telegram.org
+  #endif
+
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, ledState);
+  
+  // Connect to Wi-Fi
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  #ifdef ESP32
+    client.setCACert(TELEGRAM_CERTIFICATE_ROOT); // Add root certificate for api.telegram.org
+  #endif
+  while (WiFi.status() != WL_CONNECTED) {
+    if (doOnce == 0) {
+      delay(1000);
+      Serial.print("Connecting to WiFi.. [-_-]Z");
+      doOnce = 1;
+    } 
+    if (doOnce == 1){
+      delay(1000); 
+      Serial.print("z");
+    }
+  }
+  
+  // Print ESP32 Local IP Address
+  Serial.print(" IP:");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+
+    int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+
+    while(numNewMessages) {
+      Serial.println("got response");
+      handleNewMessages(numNewMessages);
+      numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+    }
+
+    handleNewMessages(numNewMessages);
+  
+}
+```
