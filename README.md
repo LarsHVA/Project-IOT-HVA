@@ -275,6 +275,9 @@ void loop() {
 
 ![Resultaat](https://github.com/LarsHVA/Project-IOT-HVA/blob/main/Doc/ezgif-6-d0c740dc9b33.gif?raw=true)
 
+## Error handeling
+[Error handeling](https://github.com/LarsHVA/Project-IOT-HVA/wiki/Error-handeling)
+
 ## Bronnen
 - [Telegram: Control ESP32/ESP8266 Outputs (Arduino IDE)](https://randomnerdtutorials.com/telegram-control-esp32-esp8266-nodemcu-outputs/)
 - [ESP8266 NodeMCU with HC-SR04 Ultrasonic Sensor with Arduino IDE](https://randomnerdtutorials.com/esp8266-nodemcu-hc-sr04-ultrasonic-arduino/)
